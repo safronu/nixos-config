@@ -68,20 +68,30 @@
     rofi
     docker
     docker-compose
+    vscode
+    pavucontrol
+    skype
   ];
 
   services.xserver = {
+   autorun = true;
    enable = true;
+   exportConfiguration = true;
    desktopManager = {
-    default = "xfce";
     xterm.enable = false;
-    xfce = {
-     enable = true;
-     noDesktop = true;
-     enableXfwm = false;
+    plasma5.enable = true;
+   };
+   displayManager.lightdm.enable = true;
+   windowManager = {
+    i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        i3status
+        i3lock
+        i3blocks
+      ];
     };
    };
-   windowManager.i3.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -108,8 +118,8 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -131,6 +141,7 @@
      extraGroups = [ 
       "wheel" 
       "docker" 
+      "audio"
      ]; # Enable ‘sudo’ for the user.
   };
 
