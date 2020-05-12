@@ -79,6 +79,7 @@
     skype
     slack
     flameshot
+    tdesktop
   ];
 
   services.xserver = {
