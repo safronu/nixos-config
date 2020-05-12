@@ -55,6 +55,11 @@
    chromium = {
     enablePepperFlash = true;
    };
+
+   git = {
+    userName  = "safronu";
+    userEmail = "uladzislau.safronau@gmail.com";
+   };
   };
 
   environment.systemPackages = with pkgs; [
@@ -70,12 +75,17 @@
     docker-compose
     vscode
     pavucontrol
+    postman
     skype
+    slack
+    flameshot
   ];
 
   services.xserver = {
    autorun = true;
    enable = true;
+   layout = "us,ru";
+   xkbOptions = "grp:alt_shift_toggle";
    exportConfiguration = true;
    desktopManager = {
     xterm.enable = false;
@@ -123,8 +133,6 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
