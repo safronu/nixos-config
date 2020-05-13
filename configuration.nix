@@ -47,15 +47,6 @@
 
    openjdk8 = {};   
 
-   firefox = {
-    enableGoogleTalkPlugin = true;
-    enableAdobeFlash = true;
-   };
-
-   chromium = {
-    enablePepperFlash = true;
-   };
-
    git = {
     userName  = "safronu";
     userEmail = "uladzislau.safronau@gmail.com";
@@ -80,7 +71,15 @@
     slack
     flameshot
     tdesktop
+    nodejs
+    bash
+    ngrok
+    openvpn
   ];
+
+  services.openvpn.servers = {
+    express-vpn  = { config = " config /home/ulad/nixos-config/my_expressvpn_belarus_udp.ovpn "; };
+  };
 
   services.xserver = {
    autorun = true;
