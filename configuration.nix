@@ -53,7 +53,7 @@
    };
   };
 
-  environment.systemPackages = with pkgs; [
+ environment.systemPackages = with pkgs; [
     wget 
     vim
     chromium 
@@ -78,7 +78,14 @@
   ];
 
   services.openvpn.servers = {
-    express-vpn  = { config = " config /home/ulad/nixos-config/my_expressvpn_belarus_udp.ovpn "; };
+    express-vpn  = { 
+      autoStart = true;
+      authUserPass = {
+        username = "5dxaswnjg5rvoy6bfo6yotqv";
+        password = "hdhcce247xjd3gbjm3fs2i51";
+      };
+      config = " config /home/ulad/nixos-config/my_expressvpn_belarus_udp.ovpn "; 
+    };
   };
 
   services.xserver = {
