@@ -42,6 +42,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
+  # nix.extraOptions = 
+  #  ''
+  #    build-use-substitutes false
+  #  '';
+
   nixpkgs.config = {
    allowUnfree = true;
 
@@ -75,6 +80,10 @@
     bash
     ngrok
     openvpn
+    idris
+    jetbrains.idea-community
+    purescript
+    spago
   ];
 
   services.openvpn.servers = {
@@ -167,6 +176,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.03"; # Did you read the comment?
-
+  system.autoUpgrade.channel = "https://nixos.org/channels/nixos-20.03-small";
 }
 
