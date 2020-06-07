@@ -42,11 +42,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  # nix.extraOptions = 
-  #  ''
-  #    build-use-substitutes false
-  #  '';
-
   nixpkgs.config = {
    allowUnfree = true;
 
@@ -84,16 +79,17 @@
     jetbrains.idea-community
     purescript
     spago
+    coq
+    neofetch
   ];
 
   services.openvpn.servers = {
-    express-vpn  = { 
-      autoStart = true;
+    expressVpn  = { 
       authUserPass = {
         username = "5dxaswnjg5rvoy6bfo6yotqv";
         password = "hdhcce247xjd3gbjm3fs2i51";
       };
-      config = " config /home/ulad/nixos-config/my_expressvpn_belarus_udp.ovpn "; 
+      config = "config /home/ulad/nixos-config/my_expressvpn_belarus_udp.ovpn"; 
     };
   };
 
